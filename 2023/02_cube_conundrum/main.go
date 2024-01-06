@@ -1,12 +1,13 @@
 package main
 
 import (
-	util "aoc2023/util"
 	"fmt"
 	"log"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/SuperDulli/advent-of-code/util"
 )
 
 type cubeSet struct {

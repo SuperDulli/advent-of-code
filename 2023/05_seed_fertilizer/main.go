@@ -1,13 +1,13 @@
 package main
 
 import (
-	"aoc2023/util"
 	"cmp"
 	"fmt"
 	"os"
 	"slices"
 	"strings"
 
+	"github.com/SuperDulli/advent-of-code/util"
 	"github.com/go-camp/interval"
 )
 

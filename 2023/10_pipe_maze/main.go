@@ -1,8 +1,9 @@
 package main
 
 import (
-	"aoc2023/util"
 	"fmt"
+
+	"github.com/SuperDulli/advent-of-code/util"
 )
 
 type vector struct {

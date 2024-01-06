@@ -1,11 +1,12 @@
 package main
 
 import (
-	"aoc2023/util"
 	"fmt"
 	"os"
 	"regexp"
 	"strconv"
+
+	"github.com/SuperDulli/advent-of-code/util"
 )
 
 func main() {
@@ -20,7 +21,7 @@ func main() {
 }
 
 type dict struct {
-	key string
+	key   string
 	value string
 }
 
@@ -41,12 +42,11 @@ func PrepareLine(line string) string {
 	return line
 }
 
-
 func SpellingToNumber(line string) string {
-	patterns := []string{"one","two","three","four","five","six","seven","eight","nine"}
+	patterns := []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
 	for index, pattern := range patterns {
 		numberPattern := regexp.MustCompile(pattern)
-		line = numberPattern.ReplaceAllString(line, strconv.Itoa(index + 1))
+		line = numberPattern.ReplaceAllString(line, strconv.Itoa(index+1))
 	}
 	return line
 }

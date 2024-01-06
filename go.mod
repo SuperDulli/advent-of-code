@@ -1,4 +1,4 @@
-module aoc2023
+module github.com/SuperDulli/advent-of-code
 
 go 1.21.3
 

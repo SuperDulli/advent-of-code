@@ -1,12 +1,13 @@
 package main
 
 import (
-	"aoc2023/util"
 	"fmt"
 	"os"
 	"regexp"
 	"slices"
 	"strings"
+
+	"github.com/SuperDulli/advent-of-code/util"
 )
 
 type lens struct {

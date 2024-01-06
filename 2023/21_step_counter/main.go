@@ -1,10 +1,11 @@
 package main
 
 import (
-	"aoc2023/util"
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/SuperDulli/advent-of-code/util"
 )
 
 type Vector struct {
@@ -92,7 +93,7 @@ func neighbors(pos Vector, garden [][]string) []Vector {
 func reachable(distances map[Vector]int, steps int) int {
 	count := 0
 	for _, distance := range distances {
-		if distance%2 == steps % 2 {
+		if distance%2 == steps%2 {
 			count++
 		}
 

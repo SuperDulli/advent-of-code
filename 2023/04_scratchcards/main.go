@@ -1,11 +1,12 @@
 package main
 
 import (
-	"aoc2023/util"
 	"fmt"
 	"math"
 	"os"
 	"strings"
+
+	"github.com/SuperDulli/advent-of-code/util"
 )
 
 func main() {
