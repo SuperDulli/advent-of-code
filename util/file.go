@@ -75,3 +75,11 @@ func ConvertToNumber(s string) int {
 	}
 	return n
 }
+
+func DirectoryName() string {
+	directoryName, err := os.Getwd()
+	if err != nil {
+		log.Fatalf("getting name of working directory: %s", err)
+	}
+	return directoryName
+}
