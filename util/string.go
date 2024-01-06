@@ -17,3 +17,7 @@ func ToSnakeCase(s string) string {
 	}
 	return snake.String()
 }
+
+func SplitLines(s string) []string {
+	return strings.Split(s, "\n")
+}
