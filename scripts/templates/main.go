@@ -3,18 +3,19 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
 
 	"github.com/SuperDulli/advent-of-code/util"
 )
 
 func main() {
 	var part int
+	var inputFileName string
 	flag.IntVar(&part, "part", 1, "part 1 or 2")
+	flag.StringVar(&inputFileName, "file", "input.txt", "alternate input file")
 	flag.Parse()
 	fmt.Println("Running part", part)
 
-	input := util.ReadLines(os.Args[1])
+	input := util.ReadLines(inputFileName)
 
 	if part == 1 {
 		ans := part1(input)
