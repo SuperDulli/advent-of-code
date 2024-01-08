@@ -1,3 +1,5 @@
+github.com/glenn-brown/golang-pkg-pcre v0.0.0-20120522223659-48bb82a8b8ce h1:MS/JOOAHf4U2iKl8+1+vzUcG9t9ru1hnZJ9NEBDvMnY=
+github.com/glenn-brown/golang-pkg-pcre v0.0.0-20120522223659-48bb82a8b8ce/go.mod h1:5385NDJ+Gt5loLrAlc8Rr5lKA1L5BE5O94jfdwEX9kg=
 github.com/go-camp/interval v0.0.0-20201105132344-41f3b03c4c44 h1:PNA5RhjH/HmSBokyrdfKnfCLzxEahkyH3zoj98ta4XA=
 github.com/go-camp/interval v0.0.0-20201105132344-41f3b03c4c44/go.mod h1:5h2Ug7jw3xQYrirGa72+eXCqnjCBLcOU9mtA/O45hhc=
 golang.org/x/net v0.19.0 h1:zTwKpTd2XuCqf8huc7Fo2iSy+4RHPd10s4KzeTnVr1c=

@@ -6,11 +6,16 @@ import (
 	"github.com/SuperDulli/advent-of-code/util"
 )
 
-var example = `ugknbfddgicrmopn
+const example = `ugknbfddgicrmopn
 aaa
 jchzalrnumimnmhp
 haegwjzuvuyypxyu
 dvszwmarrgswjxmb`
+
+const example2 = `qjhvhtzxzqqjkmpb
+xxyxx
+uurcxstgmygtbstg
+ieodomkazucvgmuy`
 
 func Test_part1(t *testing.T) {
 	tests := []struct {
@@ -36,8 +41,8 @@ func Test_part2(t *testing.T) {
 		input []string
 		want  int
 	}{
-		{"example", util.SplitLines(example), 0},
-		{"actual", util.ReadLines("input.txt"), 0},
+		{"example", util.SplitLines(example2), 2},
+		{"actual", util.ReadLines("input.txt"), 69},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

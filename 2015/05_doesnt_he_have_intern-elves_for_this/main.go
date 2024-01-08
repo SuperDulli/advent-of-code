@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/SuperDulli/advent-of-code/util"
+	"github.com/glenn-brown/golang-pkg-pcre/src/pkg/pcre" // golang's regex engine does not support back references
 )
 
 func main() {
@@ -38,7 +39,14 @@ func part1(input []string) int {
 }
 
 func part2(input []string) int {
-	return 0
+	count := 0
+	for _, line := range input {
+		if pcre.MustCompile(`(..).*\1`, 0).MatcherString(line, 0).Matches() &&
+			pcre.MustCompile(`(.).\1`, 0).MatcherString(line, 0).Matches() {
+			count++
+		}
+	}
+	return count
 }
 
 func isNice(s string) bool {
