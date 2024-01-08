@@ -11,7 +11,10 @@
 				"streetsidesoftware.code-spell-checker"
 			]
 		}
-	}
+	},
+	"runArgs": [
+		"--env-file", "${localWorkspaceFolder}/.env"
+	]
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
