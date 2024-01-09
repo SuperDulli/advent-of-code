@@ -6,7 +6,7 @@ import (
 	"github.com/SuperDulli/advent-of-code/util"
 )
 
-var example = ``
+const example = ``
 
 func Test_part1(t *testing.T) {
 	tests := []struct {
