@@ -1,6 +1,9 @@
 package util
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 // 0 <= index <= len(a)
 func Insert[T any](a []T, index int, value T) []T {
@@ -30,6 +33,17 @@ func Transpose(slice [][]string) [][]string {
 func Print2D[T any](matrix [][]T) {
 	for _, row := range matrix {
 		fmt.Println(row)
+	}
+}
+
+func Print2DPadding[T any](matrix [][]T, padding int) {
+	rowFormat := "%" + strconv.Itoa(padding) + "v "
+	for _, row := range matrix {
+		fmt.Print("[")
+		for _, tile := range row {
+			fmt.Printf(rowFormat, tile)
+		}
+		fmt.Print("]\n")
 	}
 }
 
