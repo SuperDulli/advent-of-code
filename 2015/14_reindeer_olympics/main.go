@@ -24,7 +24,7 @@ func main() {
 		ans := part1(input, seconds)
 		fmt.Println("Output:", ans)
 	} else {
-		ans := part2(input)
+		ans := part2(input, seconds)
 		fmt.Println("Output:", ans)
 	}
 }
@@ -39,8 +39,25 @@ func part1(input []string, seconds int) int {
 	return slices.Max(distances)
 }
 
-func part2(input []string) int {
-	return 0
+func part2(input []string, seconds int) int {
+	points := make([]int, len(input))
+	for sec := 1; sec <= seconds; sec++ {
+		distances := []int{}
+		for _, line := range input {
+			speed, dashTime, restTime := parseInput(line) // TODO: only parse once
+			distance := calcDistance(0, speed, dashTime, restTime, sec)
+			distances = append(distances, distance)
+		}
+		maxDistance := slices.Max(distances)
+	
+		// award point(s)
+		for n, dis := range distances {
+			if dis == maxDistance {
+				points[n] += 1
+			}
+		}
+	}
+	return slices.Max(points)
 }
 
 func parseInput(line string) (int, int, int) {

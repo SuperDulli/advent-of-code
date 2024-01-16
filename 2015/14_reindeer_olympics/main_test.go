@@ -32,14 +32,15 @@ func Test_part2(t *testing.T) {
 	tests := []struct {
 		name  string
 		input []string
+		seconds int
 		want  int
 	}{
-		{"example", util.SplitLines(example), 0},
-		{"actual", util.ReadLines("input.txt"), 0},
+		{"example", util.SplitLines(example), 1000, 689},
+		{"actual", util.ReadLines("input.txt"), 2503, 1256},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := part2(tt.input); got != tt.want {
+			if got := part2(tt.input, tt.seconds); got != tt.want {
 				t.Errorf("part2() = %v, want %v", got, tt.want)
 			}
 		})
