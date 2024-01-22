@@ -43,3 +43,29 @@ func Left2D() Vector2D {
 func Right2D() Vector2D {
 	return Vector2D{1, 0}
 }
+
+// pos += direction if possible, else returns pos
+func SafeMove(pos, direction Vector2D, height, width int) Vector2D {
+	if pos.X + direction.X < 0 || pos.X + direction.X >= width {
+		return pos
+	}
+	if pos.Y + direction.Y < 0 || pos.Y + direction.Y >= height {
+		return pos
+	}
+	pos.X += direction.X
+	pos.Y += direction.Y
+	return pos
+}
+
+// pos += direction if possible, else returns false
+func (pos *Vector2D) SafeMove(direction Vector2D, height, width int) bool {
+	if pos.X + direction.X < 0 || pos.X + direction.X >= width {
+		return false
+	}
+	if pos.Y + direction.Y < 0 || pos.Y + direction.Y >= height {
+		return false
+	}
+	pos.X += direction.X
+	pos.Y += direction.Y
+	return true
+}
