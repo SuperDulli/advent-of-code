@@ -13,7 +13,7 @@
 		}
 	},
 	"runArgs": [
-		"--env-file", "${localWorkspaceFolder}/.env"
+		"--env-file", ".env"
 	]
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
