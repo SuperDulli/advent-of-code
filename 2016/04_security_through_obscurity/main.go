@@ -41,7 +41,13 @@ func part1(input []string) int {
 }
 
 func part2(input []string) int {
-	return 0
+	for _, line := range input {
+		decrypted := decryptName(strings.Split(line, "[")[0])
+		if decrypted == "northpole object storage" {
+			return util.ConvertToNumber(regexp.MustCompile(`\d+`).FindString(line))
+		}
+	}
+	return -1
 }
 
 type room struct {
@@ -79,6 +85,28 @@ func validateChecksum(room room) bool {
 		}
 	}
 	return true
+}
+
+func decryptName(name string) string {
+	decrypted := strings.Builder{}
+	groups := regexp.MustCompile(`(\D+)-(\d+)`).FindAllStringSubmatch(name, -1)
+	text := groups[0][1]
+	id := util.ConvertToNumber(groups[0][2])
+	for _, char := range text {		
+		decrypted.WriteRune(shiftChar(char, id))
+	}
+	return decrypted.String()
+}
+
+func shiftChar(r rune, amount int) rune {
+	if r == '-' {
+		return ' '
+	}
+	newChar := int(r) + (amount % 26)
+	if newChar > int('z') {
+		newChar = int('a') + newChar - int('z') - 1
+	}
+	return rune(newChar)
 }
 
 func getHeap(m map[rune]int) *KVHeap {
