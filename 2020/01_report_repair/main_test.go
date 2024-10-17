@@ -37,7 +37,7 @@ func Test_part2(t *testing.T) {
 		input []string
 		want  int
 	}{
-		{"example", util.SplitLines(example), 0},
+		{"example", util.SplitLines(example), 241861950},
 		{"actual", util.ReadLines("input.txt"), 0},
 	}
 	for _, tt := range tests {

@@ -41,5 +41,21 @@ func part1(input []string) int {
 }
 
 func part2(input []string) int {
+	numbers := util.ConvertToNumbers(input)
+	for i, n := range numbers {
+		for j := i + 1; j < len(numbers); j++ {
+			m := numbers[j]
+			if m+n > 2020 {
+				continue
+			}
+			for k := j + 1; k < len(numbers); k++ {
+				o := numbers[k]
+				result := n + m + o
+				if result == 2020 {
+					return n * m * o
+				}
+			}
+		}
+	}
 	return 0
 }
