@@ -32,7 +32,7 @@ func part1(input []string) int {
 	validPasswords := 0
 	for _, line := range input {
 		passwordAndPolicy := parseLine(line)
-		if passwordAndPolicy.check() {
+		if passwordAndPolicy.checkCount() {
 			validPasswords++
 		}
 	}
@@ -41,27 +41,46 @@ func part1(input []string) int {
 }
 
 func part2(input []string) int {
-	return 0
+	validPasswords := 0
+	for _, line := range input {
+		passwordAndPolicy := parseLine(line)
+		if passwordAndPolicy.checkPos() {
+			validPasswords++
+		}
+	}
+
+	return validPasswords
 }
 
 type PasswordAndPolicy struct {
-	min      int
-	max      int
-	symbol   rune
+	left     int
+	right    int
+	symbol   byte
 	password string
 }
 
 func parseLine(line string) PasswordAndPolicy {
 	matches := regexp.MustCompile(`^(\d+)-(\d+)\s(\w):\s(\w+)$`).FindStringSubmatch(line)
 	return PasswordAndPolicy{
-		min:      util.ConvertToNumber(matches[1]),
-		max:      util.ConvertToNumber(matches[2]),
-		symbol:   rune(matches[3][0]),
+		left:     util.ConvertToNumber(matches[1]),
+		right:    util.ConvertToNumber(matches[2]),
+		symbol:   matches[3][0],
 		password: matches[4],
 	}
 }
 
-func (p PasswordAndPolicy) check() bool {
+func (p PasswordAndPolicy) checkCount() bool {
 	symbolCount := strings.Count(p.password, string(p.symbol))
-	return symbolCount >= p.min && symbolCount <= p.max
+	return symbolCount >= p.left && symbolCount <= p.right
+}
+
+func (p PasswordAndPolicy) checkPos() bool {
+	matches := 0
+	if p.password[p.left-1] == p.symbol {
+		matches++
+	}
+	if p.password[p.right-1] == p.symbol {
+		matches++
+	}
+	return matches == 1
 }
