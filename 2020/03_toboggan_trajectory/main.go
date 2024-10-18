@@ -27,17 +27,34 @@ func main() {
 }
 
 func part1(input []string) int {
-	treesHit := 0
 	trees := util.ConvertToMatrix(input)
 	slope := util.Vector2D{X: 3, Y: 1}
-	for x, y := 0, 0; y < len(trees); x, y = (x + slope.X) % len(trees[y]), y+slope.Y {
+	return traverse(trees, slope)
+}
+
+func part2(input []string) int {
+	slopes := []util.Vector2D{
+		{X: 1, Y: 1},
+		{X: 3, Y: 1},
+		{X: 5, Y: 1},
+		{X: 7, Y: 1},
+		{X: 1, Y: 2},
+	}
+	trees := util.ConvertToMatrix(input)
+	product := 1
+	for _, slope := range slopes {
+		treesHit := traverse(trees, slope)
+		product *= treesHit
+	}
+	return product
+}
+
+func traverse(trees [][]string, slope util.Vector2D) int {
+	treesHit := 0
+	for x, y := 0, 0; y < len(trees); x, y = (x+slope.X)%len(trees[y]), y+slope.Y {
 		if trees[y][x] == "#" {
 			treesHit++
 		}
 	}
 	return treesHit
-}
-
-func part2(input []string) int {
-	return 0
 }
