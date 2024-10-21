@@ -1,2 +1,12 @@
 .env
 new_day
+advent-of-code
+LICENSE
+.vscode/launch.json
+configs/default.yml
+.gitignore
+**/prompt.md
+2015/15_science_for_hungry_people/input.txt
+2015/15_science_for_hungry_people/example.txt
+2015/15_science_for_hungry_people/main_test.go
+2015/15_science_for_hungry_people/main.go
